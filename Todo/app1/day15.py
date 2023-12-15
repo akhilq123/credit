@@ -61,4 +61,3 @@ while True:
         print("Hey you entered a wrong command")
 #         we can use any variable here as it will be defined on the go but to make debugging easy we use '_'
 print("Bye")
-print("hi")
