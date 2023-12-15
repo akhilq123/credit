@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dd9266d-309b-4ac3-8c93-a454caf40d38" name="Changes" comment="     init mmit" />
+    <list default="true" id="5dd9266d-309b-4ac3-8c93-a454caf40d38" name="Changes" comment="     init mmit">
+      <change afterPath="$PROJECT_DIR$/../../app1/day16.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +54,7 @@
     "Python.day12.executor": "Run",
     "Python.day13.executor": "Run",
     "Python.day15.executor": "Run",
+    "Python.day16.executor": "Run",
     "Python.day2.executor": "Run",
     "Python.day3.executor": "Run",
     "Python.day4.executor": "Run",
@@ -69,7 +73,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/akhilputhukkattuvinayan/Desktop/python/projects/Todo/day1/app1/bonus/questions_jason",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
