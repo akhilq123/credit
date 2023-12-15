@@ -6,7 +6,7 @@ import time
 time_now = time.strftime("%A %B %d %Y,%H:%M:%S")
 print(f"It is {time_now}")
 while True:
-    command = input("Do you want to add,show,edit,complete or exit? ")
+    command = input("Do you want to add,show,edit,complete or exit?")
     command_withoutspace = command.strip()
 
     # .startswith() will check if the variable starts with the character given inside the ()
