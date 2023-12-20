@@ -1,0 +1,19 @@
+Index: ../../app1/day15.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># we seperate the functions from the module of the program, so we moved get_todo()\n# and write_todo() to a python file 'functions' which is in the folder 'modules'\nfrom modules import functions\nimport time\n# we started using python function imports\ntime_now = time.strftime(\"%A %B %d %Y,%H:%M:%S\")\nprint(f\"It is {time_now}\")\nwhile True:\n    command = input(\"Do you want to add,show,edit,complete or exit? \")\n    command_withoutspace = command.strip()\n\n    # .startswith() will check if the variable starts with the character given inside the ()\n    if command_withoutspace.startswith('add'):\n        # opening the file todoss.txt and saving the data inside to todos\n        todos = functions.get_todo()\n# here we are calling the 'get_todo()' from 'functions' file so we use file_name.function that is here functions.get_todo()\n        # getting data from user and appending or adding it to todos\n        todos.append(command_withoutspace[4:] + \"\\n\")\n        # reopening the file again in write mode and rewriting the entire file with the new todoss\n        functions.write_todo(todos)\n\n    elif command_withoutspace.startswith('show'):\n        todos = functions.get_todo()\n        for index, item in enumerate(todos):\n            item = item.strip('\\n')\n            # removing the line break from the txt file so that we don't get 2 linebreaks\n            print(f\"{index + 1}.{item.capitalize()}\")\n    #         we use capitalize function to get the first letter of the item capital for better reading\n    elif command_withoutspace.startswith('edit'):\n        try:\n            number = int(command_withoutspace[5:])\n            position = number - 1\n\n            todos = functions.get_todo()\n\n            todos[position] = input(\"Enter new todo:\") + \"\\n\"\n\n            functions.write_todo(todos)\n        except ValueError:\n            print(\"Your command is not valid\")\n            # now we have to make the program start from  begining for this we can use continue which is the opposite\n            # of break\n            continue\n\n\n    elif command_withoutspace.startswith('complete'):\n        try:\n            num = int(command_withoutspace[8:])\n\n            todos = functions.get_todo()\n            completed = todos[num - 1].strip(\"\\n\")\n            print(f\"'{completed}' is marked as completed and is removed from to do list\")\n            todos.pop(num - 1)\n            functions.write_todo(todos)\n        except IndexError:\n            print(\"Your command is not valid valid range\")\n            continue\n    elif 'exit' in command_withoutspace:\n        break\n    else:\n        print(\"Hey you entered a wrong command\")\n#         we can use any variable here as it will be defined on the go but to make debugging easy we use '_'\nprint(\"Bye\")\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../app1/day15.py b/../../app1/day15.py
+--- a/../../app1/day15.py	(revision 144901609c4c97ca6de1da29d3aefbf545fa5d72)
++++ b/../../app1/day15.py	(date 1702666069013)
+@@ -37,7 +37,7 @@
+ 
+             functions.write_todo(todos)
+         except ValueError:
+-            print("Your command is not valid")
++            print("Your command is not valid" )
+             # now we have to make the program start from  begining for this we can use continue which is the opposite
+             # of break
+             continue
