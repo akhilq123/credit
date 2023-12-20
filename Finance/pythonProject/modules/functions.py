@@ -27,11 +27,7 @@ def write_json(content,filepath=destination_file):
         file.write(json.dumps(content))
 
 
-def altering_element(element,content):
-    data = read_json()
-    data[element] = content
-    write_json(data)
-    return
+
 # '__name__' is a variable that python creates, if the code is run directly the variable will have value '__main__'
 # if the code is called by importing in other file '__name__' will have some other value
 #  so the if statement below will only be executed if we run the file here, it wont execute in any other files

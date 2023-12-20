@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dd9266d-309b-4ac3-8c93-a454caf40d38" name="Changes" comment="Added day 16 , GUI interface using SimpleGUI">
-      <change afterPath="$PROJECT_DIR$/../../../Finance/pythonProject/dictionary_project.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Finance/pythonProject/files/dictionary.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Finance/pythonProject/files/owing.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Finance/pythonProject/final.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Finance/pythonProject/fron_end.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Finance/pythonProject/modules/functions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app1/day19_webApp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Finance/pythonProject/files/dictionary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Finance/pythonProject/files/dictionary.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Finance/pythonProject/final.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Finance/pythonProject/final.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Finance/pythonProject/modules/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Finance/pythonProject/modules/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../app1/bonus" beforeDir="false" afterPath="$PROJECT_DIR$/../../app1/bonus" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../app1/bonus/compresson_app/bonus16.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../app1/bonus/compresson_app/bonus16.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../app1/bonus/extractoion_app/front_end.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../app1/bonus/extractoion_app/front_end.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app1/file/todoss.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../app1/file/todoss.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/app1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/app1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
