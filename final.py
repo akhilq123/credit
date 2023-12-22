@@ -74,17 +74,17 @@ def income(value):
             index=None,
             placeholder="Select card to edit",
         )
-        match option:
-            case "simplii":
+        if option:
+            if option == "simplii":
                  confirm_income("card",option,value)
-            case "tangerine":
+            elif option == "tangerine":
                  confirm_income("card",option,value)
-            case "bmo":
+            elif option == "bmo":
                  confirm_income("card",option,value)
-            case "mbna":
+            elif option == "mbna":
                 if confirm():
                      confirm_income("card", option, value)
-            case "rbc":
+            elif option == "rbc":
                  confirm_income("card",option,value)
 
 def expense(value):
@@ -108,16 +108,16 @@ def expense(value):
             index=None,
             placeholder="Select card to edit",
         )
-        match option:
-            case "simplii":
+        if option:
+            if option == "simplii":
                 confirm_expense("card",option,value)
-            case "tangerine":
+            elif option == "tangerine":
                 confirm_expense("card",option,value)
-            case "bmo":
+            elif option == "bmo":
                 confirm_expense("card",option,value)
-            case "mbna":
+            elif option == "mbna":
                 confirm_expense("card",option,value)
-            case "rbc":
+            elif option == "rbc":
                 confirm_expense("card",option,value)
 def add(value=0,task="edit"):
     if task=="edit":
@@ -142,16 +142,16 @@ def add(value=0,task="edit"):
                 index=None,
                 placeholder="Select card to edit",
             )
-            match option:
-                case "simplii":
+            if option:
+                if option == "simplii":
                     confirm_add("card", option, new)
-                case "tangerine":
+                elif option == "tangerine":
                     confirm_add("card", option, new)
-                case "bmo":
+                elif option == "bmo":
                     confirm_add("card", option, new)
-                case "mbna":
+                elif option == "mbna":
                     confirm_add("card", option, new)
-                case "rbc":
+                elif option == "rbc":
                     confirm_add("card", option, new)
 
     elif task=="income":
@@ -204,18 +204,18 @@ elif edit:
     if type == ":green[INCOME]":
         try:
             income = st.number_input(label="Enter paid amount", value=None, placeholder="")
-            functions.add(income,"income")
+            add(income,"income")
         except TypeError:
             st.write("enter number")
 
     elif type == ":red[EXPENSE]":
         try:
             expense = st.number_input(label="Enter expense amount", value=None)
-            functions.add(expense,"expense")
+            add(expense,"expense")
         except TypeError:
             st.write("enter number")
     elif type=="add":
-        functions.add()
+        add()
 
 elif calculate:
     monthly=1
@@ -223,6 +223,6 @@ elif calculate:
     months=data["total"]["total"]/monthly
     st.write(f"Debt free in {months} Months 	:relieved:")
 
-functions.balance()
+balance()
 
 
