@@ -1,21 +1,7 @@
 import streamlit as st
 import json
-import streamlit.components.v1 as components
+
 destination_file = 'dictionary.txt'
-
-def get_todo(filepath=destination_file):
-    """
-    Read a list file and return the items inside, default value of filepath is given,
-    if accessing a different file you can give value in the function call
-    """
-    with open(filepath, "r") as files:
-        local_todos = files.readlines()
-    return local_todos
-
-
-def write_todo(content,filepath=destination_file):
-    with open(filepath, "w") as files:
-        files.writelines(content)
 
 def read_json(filepath=destination_file):
     with open(filepath) as file:  # Reading the file here
@@ -69,24 +55,24 @@ def income(value):
         elif option == "rbc_loc":
              confirm_income("loc",option,value)
     elif card:
-        option = st.selectbox(
+        option1 = st.selectbox(
             "Choose card to update",
             ("simplii", "tangerine", "bmo", "mbna", "rbc"),
             index=None,
             placeholder="Select card to edit",
         )
-        match option:
+        match option1:
             case "simplii":
-                 confirm_income("card",option,value)
+                 confirm_income("card",option1,value)
             case "tangerine":
-                 confirm_income("card",option,value)
+                 confirm_income("card",option1,value)
             case "bmo":
-                 confirm_income("card",option,value)
+                 confirm_income("card",option1,value)
             case "mbna":
                 if confirm():
-                     confirm_income("card", option, value)
+                     confirm_income("card", option1, value)
             case "rbc":
-                 confirm_income("card",option,value)
+                 confirm_income("card",option1,value)
 
 def expense(value):
     loc = st.toggle("LOC")
