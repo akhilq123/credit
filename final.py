@@ -2,7 +2,7 @@ import streamlit as st
 import json
 import functions
 
-with open(destination_file) as file:  # Reading the file here
+with open(dictionary.txt) as file:  # Reading the file here
     data = json.load(file)
 file.close()
 
