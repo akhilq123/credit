@@ -25,12 +25,12 @@ def read_json(filepath=destination_file):
 def write_json(content,filepath=destination_file):
     with open(filepath, 'w') as file:  # Writing to file here
         file.write(json.dumps(content))
-def confirm():
-    local = st.button("SAVE")
+def confirm(key):
+    local = st.button("SAVE",key=key)
     return local
 
 def confirm_income(parent,child,new):
-    local = st.button("SAVE")
+    local = st.button("SAVE",key=parent+child)
     if local:
         data = read_json()
         data[parent][child]-= new
@@ -38,14 +38,14 @@ def confirm_income(parent,child,new):
         st.write("Balance Updated")
 
 def confirm_expense(parent,child,new):
-    local = st.button("SAVE")
+    local = st.button("SAVE",key=parent+child)
     if local:
         data = read_json()
         data[parent][child]+= new
         write_json(data)
         st.write("Balance Updated")
 def confirm_add(parent,child,new):
-    local = st.button("SAVE")
+    local = st.button("SAVE",key=parent+child)
     if local:
         data = read_json()
         data[parent][child] = new
@@ -82,7 +82,7 @@ def income(value):
             elif option == "bmo":
                  confirm_income("card",option,value)
             elif option == "mbna":
-                if confirm():
+                if confirm(option):
                      confirm_income("card", option, value)
             elif option == "rbc":
                  confirm_income("card",option,value)
@@ -174,7 +174,7 @@ def balance():
         st.write("Total LOC:", y)
         st.write('Total Card:', x)
         st.write("Total Debt =", x + y)
-        if confirm():
+        if confirm(bal):
             data = read_json()
             data["total"]["card_total"] = x
             data["total"]["loc_total"] = y
