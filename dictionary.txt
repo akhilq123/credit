@@ -1,0 +1,1 @@
+{"loc": {"scotia_loc": 35000.0, "rbc_loc": 1000.0}, "card": {"simplii": 850.0, "tangerine": 100.0, "bmo": 400.0, "mbna": 550.0, "rbc": 600.0, "Simplii": 200.0}, "total": {"total": 3010.0, "card_total": 1900.0, "loc_total": 1110.0}}

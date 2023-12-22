@@ -1,1 +1,0 @@
-{"loc": {"scotia": 3500, "rbc": 10000}, "card": {"simplii": 100, "tangerine": 200, "bmo": 111, "mbna": 555, "rbc": 557}, "total": 1400.0}
