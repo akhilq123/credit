@@ -61,17 +61,17 @@ def income(value):
             index=None,
             placeholder="Select card to edit",
         )
-        match option1:
-            case "simplii":
+        if option1 :
+            if option1 == "simplii":
                  confirm_income("card",option1,value)
-            case "tangerine":
+            if option1 == "tangerine":
                  confirm_income("card",option1,value)
-            case "bmo":
+            if option1 == "bmo":
                  confirm_income("card",option1,value)
-            case "mbna":
+            if option1 == "mbna":
                 if confirm():
                      confirm_income("card", option1, value)
-            case "rbc":
+            if option1 == "rbc":
                  confirm_income("card",option1,value)
 
 def expense(value):
@@ -95,16 +95,16 @@ def expense(value):
             index=None,
             placeholder="Select card to edit",
         )
-        match option:
-            case "simplii":
+        if option :
+            if option == "simplii":
                 confirm_expense("card",option,value)
-            case "tangerine":
+            if option == "tangerine":
                 confirm_expense("card",option,value)
-            case "bmo":
+            if option == "bmo":
                 confirm_expense("card",option,value)
-            case "mbna":
+            if option == "mbna":
                 confirm_expense("card",option,value)
-            case "rbc":
+            if option == "rbc":
                 confirm_expense("card",option,value)
 def add(value=0,task="edit"):
     if task=="edit":
@@ -129,16 +129,16 @@ def add(value=0,task="edit"):
                 index=None,
                 placeholder="Select card to edit",
             )
-            match option:
-                case "simplii":
+            if option:
+                if option == "simplii":
                     confirm_add("card", option, new)
-                case "tangerine":
+                if option == "tangerine":
                     confirm_add("card", option, new)
-                case "bmo":
+                if option == "bmo":
                     confirm_add("card", option, new)
-                case "mbna":
+                if option == "mbna":
                     confirm_add("card", option, new)
-                case "rbc":
+                if option == "rbc":
                     confirm_add("card", option, new)
 
     elif task=="income":
