@@ -1,7 +1,7 @@
 import streamlit as st
 import json
 
-destination_file = 'dictionary.txt'
+destination_file = 'Finance/webapp/dictionary.txt'
 
 def read_json(filepath=destination_file):
     with open(filepath) as file:  # Reading the file here
@@ -170,7 +170,7 @@ def balance():
             st.write("Balance Updated")
 
 
-with open('dictionary.txt') as file:  # Reading the file here
+with open(destination_file) as file:  # Reading the file here
     data = json.load(file)
 file.close()
 
