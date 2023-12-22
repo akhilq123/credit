@@ -2,7 +2,7 @@ import streamlit as st
 import json
 import functions
 
-with open(dictionary.txt) as file:  # Reading the file here
+with open("dictionary.txt") as file:  # Reading the file here
     data = json.load(file)
 file.close()
 
@@ -23,18 +23,18 @@ elif edit:
     if type == ":green[INCOME]":
         try:
             income = st.number_input(label="Enter paid amount", value=None, placeholder="")
-            add(income,"income")
+            functions.add(income,"income")
         except TypeError:
             st.write("enter number")
 
     elif type == ":red[EXPENSE]":
         try:
             expense = st.number_input(label="Enter expense amount", value=None)
-            add(expense,"expense")
+            functions.add(expense,"expense")
         except TypeError:
             st.write("enter number")
     elif type=="add":
-        add()
+        functions.add()
 
 elif calculate:
     monthly=1
@@ -42,6 +42,6 @@ elif calculate:
     months=data["total"]["total"]/monthly
     st.write(f"Debt free in {months} Months 	:relieved:")
 
-balance()
+functions.balance()
 
 
