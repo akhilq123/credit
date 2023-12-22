@@ -1,7 +1,7 @@
 import streamlit as st
 import json
 
-destination_file = 'Finance/webapp/dictionary.txt'
+destination_file = 'dictionary.txt'
 
 def read_json(filepath=destination_file):
     with open(filepath) as file:  # Reading the file here
