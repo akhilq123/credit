@@ -23,7 +23,8 @@ with tab2:
 with tab3:
    st.header("Line Of Credit Remaining:")
    st.write(data["total"]["loc_total"])
-
+month = data["total"]["total"]/2000
+st.write(f"Dream of house just {month.__round__(0)} MONTHS away if you save 2000 a month")
 st.sidebar.success("Select a page above.")
 
 # if "my_input" not in st.session_state:

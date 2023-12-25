@@ -17,6 +17,7 @@ with tab1:
    except ZeroDivisionError:
        st.write("")
 
+
 with tab2:
    st.header("Card Remaining")
    try:
