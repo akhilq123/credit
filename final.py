@@ -119,6 +119,15 @@ def expense(value):
                 confirm_expense("card",option,value)
             elif option == "rbc":
                 confirm_expense("card",option,value)
+
+def add_data(parent,child,arg1):
+    local = st.button("SAVE", key=parent+child+"1")
+    if local:
+        data = read_json()
+        data[parent][child] = arg1
+        write_json(data)
+        st.write("Balance Updated")
+
 def add(value=0,task="edit"):
     if task=="edit":
         new = st.number_input("Enter updated value")
@@ -127,18 +136,21 @@ def add(value=0,task="edit"):
         if loc:
             option = st.selectbox(
                 "Choose",
-                ("scotia_loc", "rbc_loc"),
+                ("scotia_loc", "rbc_loc","add_new"),
                 index=None,
-                placeholder="Select LOC to edit",
+                placeholder="Please Select",
             )
             if option == "scotia_loc":
                 confirm_add("loc",option,new)
             elif option == "rbc_loc":
                 confirm_add("loc",option,new)
+            elif option == "add_new":
+                loc_new = st.text_input("Enter new Record name:")
+                add_data ("loc",loc_new,new)
         elif card:
             option = st.selectbox(
                 "Choose card to update",
-                ("simplii", "tangerine", "bmo", "mbna", "rbc"),
+                ("simplii", "tangerine", "bmo", "mbna", "rbc","add_new"),
                 index=None,
                 placeholder="Select card to edit",
             )
@@ -153,6 +165,10 @@ def add(value=0,task="edit"):
                     confirm_add("card", option, new)
                 elif option == "rbc":
                     confirm_add("card", option, new)
+                elif option == "add_new":
+                    card_new = st.text_input("Enter new Record name:")
+                    add_data("card", card_new, new)
+
 
     elif task=="income":
         income(value)
@@ -188,7 +204,7 @@ with open("dictionary.txt") as file:  # Reading the file here
 file.close()
 
 # components.html("""<html><body><h1>:)</h1></body></html>""",height=70)
-
+delete = st.button("Delete record")
 show = st.button("Show Balance")
 edit= st.toggle("Edit")
 calculate = st.toggle("calculate",disabled=edit)
@@ -218,10 +234,13 @@ elif edit:
         add()
 
 elif calculate:
-    monthly=1
-    monthly=st.number_input("Enter monthly Payments:",value=1.0)
-    months=data["total"]["total"]/monthly
-    st.write(f"Debt free in {months} Months 	:relieved:")
+    try:
+        monthly=1
+        monthly=st.number_input("Enter monthly Payments:",value=1.0)
+        months=data["total"]["total"]/monthly
+        st.write(f"Debt free in {months} Months 	:relieved:")
+    except ValueError :
+        st.write("Enter a number")
 
 balance()
 

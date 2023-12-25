@@ -63,7 +63,7 @@ def delete():
 
 st.title("Edit Record Book")
 
-tab1, tab2, tab3 = st.tabs(["Record transaction", "Add", "Remove"])
+tab1, tab2, tab3, tab4 = st.tabs(["Record transaction", "Add","Edit","Remove"])
 
 with tab1:
     st.header("Details of payment")
@@ -88,16 +88,17 @@ with tab1:
                 except TypeError:
                     st.write("enter number")
     else:
-        type = st.radio(
-            "Total",
-            [":green[INCOME]", ":red[EXPENSE]"], index=None, horizontal=True,
-        )
-        if type:
-            try:
-                amount = st.number_input(label="Enter amount", value=None, placeholder="")
-                add(type, option, amount)
-            except TypeError:
-                st.write("enter number")
+        if option:
+            type = st.radio(
+                "Total",
+                [":green[INCOME]", ":red[EXPENSE]"], index=None, horizontal=True,
+            )
+            if type:
+                try:
+                    amount = st.number_input(label="Enter amount", value=None, placeholder="")
+                    add(type, option, amount)
+                except TypeError:
+                    st.write("enter number")
 with tab2:
     try:
         st.header("Enter details of New Merchant")
@@ -106,6 +107,52 @@ with tab2:
         st.write("")
 
 with tab3:
+    option = st.selectbox(
+        "Choose Merchant payed",
+        ("scotia_loc", "rbc_loc", "simplii", "tangerine", "bmo", "mbna", "rbc", "other"),
+        index=None,
+        placeholder="Select merchant",
+        key="tab2"
+    )
+    if option == "other":
+        oth = st.text_input("Enter the merchant name as exactly in records")
+        values = list(data[option].keys())
+        for value in values:
+            if value == oth:
+                try:
+                    amount = st.number_input(label="Enter amount", value=None, placeholder="")
+                    data[option][oth]= amount
+                    confirm = st.button("SAVE")
+                    if confirm:
+                        st.write(f"{oth} : {data[option][oth]} SAVED")
+                        write_json(data)
+                except TypeError:
+                    st.write("enter number")
+
+    else:
+        if option:
+            try:
+                amount = st.number_input(label="Enter amount", value=None, placeholder="")
+                if option in ("scotia_loc", "rbc_loc"):
+                    parent_key = "loc"
+                    data[parent_key][option]= amount
+                    confirm = st.button("SAVE")
+                    if confirm:
+                        st.write(f"{option} : {data[parent_key][option]} SAVED")
+                        write_json(data)
+                else :
+                    parent_key = "card"
+                    data[parent_key][option] = amount
+                    confirm = st.button("SAVE")
+                    if confirm:
+                        st.write(f"{option} : {data[parent_key][option]} SAVED")
+                        write_json(data)
+
+
+            except TypeError:
+                st.write("enter number")
+
+with tab4:
    st.header("Chose the record to be deleted")
    delete()
 
