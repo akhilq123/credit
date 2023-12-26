@@ -39,6 +39,7 @@ def new_merchant():
         data[type][merchant]=amount
         confirm=st.button("SAVE",key="new_merch")
         if confirm:
+            st.write(f"{merchant} :  {amount}     SAVED!")
             write_json(data)
 
 def delete():
@@ -60,7 +61,7 @@ def delete():
                             break
             hi =st.form_submit_button("Refresh")
 
-
+record_merchants ="scotia_loc", "rbc_loc", "simplii", "tangerine", "bmo", "mbna", "rbc","scotia_credit","ammu_scotia","other"
 st.title("Edit Record Book")
 
 tab1, tab2, tab3, tab4 = st.tabs(["Record transaction", "Add","Edit","Remove"])
@@ -69,7 +70,7 @@ with tab1:
     st.header("Details of payment")
     option = st.selectbox(
         "Choose Merchant payed",
-        ("scotia_loc", "rbc_loc", "simplii", "tangerine", "bmo", "mbna", "rbc","other"),
+        (record_merchants),
         index=None,
         placeholder="Select merchant",
     )
@@ -109,7 +110,7 @@ with tab2:
 with tab3:
     option = st.selectbox(
         "Choose Merchant payed",
-        ("scotia_loc", "rbc_loc", "simplii", "tangerine", "bmo", "mbna", "rbc", "other"),
+        (record_merchants),
         index=None,
         placeholder="Select merchant",
         key="tab2"
@@ -120,7 +121,7 @@ with tab3:
         for value in values:
             if value == oth:
                 try:
-                    amount = st.number_input(label="Enter amount", value=None, placeholder="")
+                    amount = st.number_input(label="Enter amount", value=None, placeholder=data[option][oth])
                     data[option][oth]= amount
                     confirm = st.button("SAVE")
                     if confirm:
@@ -132,9 +133,9 @@ with tab3:
     else:
         if option:
             try:
-                amount = st.number_input(label="Enter amount", value=None, placeholder="")
                 if option in ("scotia_loc", "rbc_loc"):
                     parent_key = "loc"
+                    amount = st.number_input(label="Enter amount", value=None, placeholder=data[parent_key][option])
                     data[parent_key][option]= amount
                     confirm = st.button("SAVE")
                     if confirm:
@@ -142,6 +143,7 @@ with tab3:
                         write_json(data)
                 else :
                     parent_key = "card"
+                    amount = st.number_input(label="Enter amount", value=None, placeholder=data[parent_key][option])
                     data[parent_key][option] = amount
                     confirm = st.button("SAVE")
                     if confirm:
